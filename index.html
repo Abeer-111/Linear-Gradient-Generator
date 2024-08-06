@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear Gradient Generator</title>
+    <link rel="stylesheet" href="style.css ">
+    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/003/026/213/large_2x/bg-logo-monogram-modern-design-
+    template-free-vector.jpg" type="jpg">
+</head>
+<body >
+    <button id="item1">Change Background  </button>
+    <p>background-image: linear-gradient( #dadada , #000)</p>
+    <button id="item2">Copy</button>
+
+
+    <script>
+        let myBtn=document.getElementById("item1")
+        let fullBody=document.querySelector("body")
+        let code=document.querySelector("p");
+        let copyBtn=document.getElementById("item2")
+        
+        let changeBg=()=>{
+            let hexV="0123456789abcdef";
+            var hash="#"
+            var ash="#"
+            let vHex="0123456789abcdef";
+            
+            for(let i=0;i<6;i++){
+             
+              hash+=hexV[Math.floor(Math.random()*16)]
+              ash+=vHex[Math.floor(Math.random()*16)]
+            }
+             fullBody.style.backgroundImage=`linear-gradient(to right,${hash},${ash})`
+             code.innerText=`background-image:linear-gradient( ${ hash} , ${ ash})`
+        }
+
+
+        myBtn.addEventListener("click",changeBg)
+        copyBtn.addEventListener("click",()=>{
+            navigator.clipboard.writeText(code.innerText)
+            alert(code.innerText)
+        })
+
+        
+        
+    
+    </script>
+</body>
+</html>
